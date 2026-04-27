@@ -1,0 +1,106 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Kubernetes local context and generated kubeconfigs
+.kube/
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+
+# Certificates, keys, and signing material generated during labs
+*.key
+*.crt
+*.csr
+*.pem
+*.p12
+*.pfx
+cosign.key
+cosign.pub
+cosign.password
+
+# Ingress TLS lab outputs
+tls.key
+tls.crt
+
+# SBOM and supply-chain scan outputs
+*sbom*.json
+*sbom*.xml
+*sbom*.spdx
+*sbom*.cdx
+trivy-*.json
+trivy-*.txt
+trivy-*.sarif
+trivy-*.spdx
+kubesec-*.json
+kubesec-*.txt
+kube-linter-*.json
+kube-linter-*.txt
+
+# CIS / kube-bench outputs
+kube-bench*.json
+kube-bench*.log
+kube-bench*.txt
+cis-*.json
+cis-*.log
+cis-*.txt
+
+# Audit, Falco, Hubble, and troubleshooting outputs
+*.log
+audit.log
+falco-*.json
+falco-*.log
+hubble-*.json
+hubble-*.log
+events-*.txt
+describe-*.txt
+logs-*.txt
+
+# Temporary manifests and generated kubectl output
+tmp/
+temp/
+.tmp/
+artifacts/
+reports/
+downloads/
+generated/
+*-generated.yaml
+*-generated.yml
+good-pod.yaml
+dry-run.yaml
+output.yaml
+output.yml
+output.json
+
+# Downloaded Kubernetes binaries for verification labs
+bin/
+kubectl
+kubeadm
+kubelet
+etcd
+etcdctl
+*.sha256
+*.sha512
+
+# Archives and extracted release artifacts
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.gz
+
+# PowerShell and shell transcripts
+*.transcript
+PowerShell_transcript.*
+typescript
