@@ -1,0 +1,97 @@
+# CKS Hands-on Study
+
+CKS(Certified Kubernetes Security Specialist) 합격을 목표로 Kubernetes 보안 개념, 시험형 문제, `kind` 기반 hands-on 실습을 한 번에 연습하는 저장소입니다. 기본 CNI는 Cilium이며, NetworkPolicy, CiliumNetworkPolicy, Hubble, Falco 런타임 탐지까지 포함합니다.
+
+## 학습 목표
+
+- CKS 도메인을 단순 암기가 아니라 실제 명령과 검증 흐름으로 익힌다.
+- RBAC, Pod Security, NetworkPolicy, Secret, 이미지 보안, audit, runtime security 문제를 제한 시간 안에 해결한다.
+- Cilium과 Falco를 로컬 실습 환경에서 직접 설치하고 보안 이벤트를 관찰한다.
+- Windows, Linux, macOS 어디서든 같은 랩 순서로 학습한다.
+
+## 빠른 시작
+
+OS별 상세 설치는 [Windows](docs/setup/windows.md), [Linux](docs/setup/linux.md), [macOS](docs/setup/macos.md)를 참고합니다.
+
+Windows PowerShell:
+
+```powershell
+.\scripts\verify-tools.ps1
+.\scripts\create-kind-cluster.ps1
+.\scripts\install-falco.ps1
+```
+
+Linux/macOS Bash:
+
+```bash
+./scripts/verify-tools.sh
+./scripts/create-kind-cluster.sh
+./scripts/install-falco.sh
+```
+
+클러스터 확인:
+
+```bash
+kubectl config current-context
+kubectl get nodes
+kubectl -n kube-system rollout status ds/cilium
+kubectl -n kube-system get pods -l k8s-app=cilium
+```
+
+실습을 모두 마친 뒤에는 클러스터를 삭제합니다.
+
+```powershell
+.\scripts\delete-kind-cluster.ps1
+```
+
+```bash
+./scripts/delete-kind-cluster.sh
+```
+
+## 추천 학습 순서
+
+1. [셋업 가이드](docs/setup/README.md)로 로컬 환경을 준비한다.
+2. [CKS 개념 목차](docs/README.md)를 훑고 시험 도메인과 실습 연결을 파악한다.
+3. [kind와 Cilium 준비](labs/01-kind-cluster/README.md)를 완료한다.
+4. RBAC, Pod Security, NetworkPolicy, Secret, 이미지 보안을 시험형 문제로 반복한다.
+5. CiliumNetworkPolicy, Hubble, Falco 탐지 랩으로 고급 보안 흐름을 익힌다.
+6. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
+
+## 공식 시험 정보와 시뮬레이터
+
+이 저장소는 합격 가능성을 높이기 위한 hands-on 베이스입니다. 최종 준비는 공식 시험 범위, Kubernetes 공식 문서 검색 훈련, killer.sh 같은 시험 유사 환경으로 검증해야 합니다.
+
+- [CNCF CKS 공식 페이지](https://www.cncf.io/certification/cks): 시험 개요, 도메인 비중, 공식 리소스 확인
+- [Linux Foundation CKS 페이지](https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/): 시험 세부 정보, Kubernetes 버전, simulator 포함 여부 확인
+- [CNCF curriculum](https://github.com/cncf/curriculum): 공개 커리큘럼과 최신 변경 확인
+- [killer.sh CKS simulator](https://killer.sh/cks): 시험과 유사한 120분 실습 환경
+- [killer.sh FAQ](https://killer.sh/faq): simulator 세션, 환경, 포함 여부 확인
+
+권장 활용 루틴:
+
+1. 시험 2주 전: killer.sh 1차를 제한 시간 안에 풀고, 틀린 문제를 이 저장소의 관련 랩으로 되돌아가 재실습한다.
+2. 시험 1주 전: [Mock Exam](mock-exams/README.md)을 2회 이상 풀고, 실패 원인을 공식 문서 링크와 함께 정리한다.
+3. 시험 2~3일 전: killer.sh 2차를 풀고, 남은 약점만 짧게 반복한다.
+4. 시험 전날: 새 내용을 늘리지 말고 `kubectl` 단축 명령, 공식 문서 검색 키워드, 자주 틀린 YAML 필드만 복습한다.
+
+## 실습 목록
+
+- [01. kind 클러스터와 Cilium 준비](labs/01-kind-cluster/README.md)
+- [02. RBAC와 ServiceAccount](labs/02-rbac-serviceaccount/README.md)
+- [03. Pod Security와 SecurityContext](labs/03-pod-security/README.md)
+- [04. NetworkPolicy](labs/04-network-policy/README.md)
+- [05. Secret 관리](labs/05-secrets/README.md)
+- [06. 이미지 보안](labs/06-image-security/README.md)
+- [07. Audit Logging](labs/07-audit-logging/README.md)
+- [08. Runtime Security](labs/08-runtime-security/README.md)
+- [09. Cilium 네트워크 보안](labs/09-cilium-network-security/README.md)
+- [10. Falco 런타임 탐지](labs/10-falco-detection/README.md)
+
+## 시험 연습 원칙
+
+- `kubectl explain`, `kubectl auth can-i`, `kubectl run --dry-run=client -o yaml`, `kubectl patch`, `kubectl get -o jsonpath`를 손에 익힌다.
+- `task.md`를 먼저 풀고, 막히면 `hints.md`, 마지막에 `solution.md`를 본다.
+- 리소스 생성 후 반드시 허용/차단/탐지 결과를 검증한다.
+- kind에서 재현하기 어려운 control plane/노드 하드닝은 실제 시험 환경 차이를 문서에서 확인한다.
+- 시험 중에는 쉬운 문제를 먼저 풀고, 막힌 문제는 표시한 뒤 마지막에 돌아온다.
+- 공식 문서는 URL을 외우기보다 `rbac`, `pod security admission`, `networkpolicy`, `audit logging`, `secrets good practices` 같은 검색 키워드를 손에 익힌다.

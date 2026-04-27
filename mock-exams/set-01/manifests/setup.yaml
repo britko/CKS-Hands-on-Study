@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exam-rbac
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exam-psa
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exam-netpol
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exam-secret
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-password
+  namespace: exam-secret
+type: Opaque
+stringData:
+  password: exam-password
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: exam-netpol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: nginx
+          image: nginxinc/nginx-unprivileged:1.27-alpine
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: exam-netpol
+spec:
+  selector:
+    app: web
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-allowed
+  namespace: exam-netpol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: allowed-client
+  template:
+    metadata:
+      labels:
+        app: allowed-client
+    spec:
+      containers:
+        - name: client
+          image: busybox:1.36
+          command: ["sh", "-c", "sleep 3600"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-blocked
+  namespace: exam-netpol
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocked-client
+  template:
+    metadata:
+      labels:
+        app: blocked-client
+    spec:
+      containers:
+        - name: client
+          image: busybox:1.36
+          command: ["sh", "-c", "sleep 3600"]
