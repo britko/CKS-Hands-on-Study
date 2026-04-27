@@ -7,7 +7,7 @@
 ### 4주 전: 기본기와 환경
 
 - [셋업 가이드](setup/README.md)로 로컬 `kind`, Cilium, Falco 환경을 만든다.
-- [01. kind 클러스터와 Cilium 준비](../labs/01-kind-cluster/README.md)부터 [05. Secret 관리](../labs/05-secrets/README.md)까지 따라 한다.
+- [Environment](../labs/00-environment/README.md)부터 [Microservice Vulnerabilities](../labs/04-microservice-vulnerabilities/README.md)까지 따라 한다.
 - [Kubernetes Security](https://kubernetes.io/docs/concepts/security/)를 훑고 시험 도메인 이름과 연결한다.
 
 ### 3주 전: 시험형 문제 전환
@@ -60,9 +60,9 @@
 
 ## 랩과 CKS 도메인 매핑
 
-- Cluster Setup: [02. RBAC](../labs/02-rbac-serviceaccount/README.md), [07. Audit Logging](../labs/07-audit-logging/README.md)
-- Cluster Hardening: [03. Pod Security](../labs/03-pod-security/README.md)
-- System Hardening: [08. Runtime Security](../labs/08-runtime-security/README.md), seccomp/AppArmor 공식 문서
-- Minimize Microservice Vulnerabilities: [04. NetworkPolicy](../labs/04-network-policy/README.md), [05. Secret](../labs/05-secrets/README.md), [09. Cilium](../labs/09-cilium-network-security/README.md)
-- Supply Chain Security: [06. Image Security](../labs/06-image-security/README.md)
-- Monitoring, Logging, Runtime Security: [07. Audit Logging](../labs/07-audit-logging/README.md), [10. Falco](../labs/10-falco-detection/README.md)
+- Cluster Setup: [labs/01-cluster-setup](../labs/01-cluster-setup/README.md)
+- Cluster Hardening: [labs/02-cluster-hardening](../labs/02-cluster-hardening/README.md)
+- System Hardening: [labs/03-system-hardening](../labs/03-system-hardening/README.md)
+- Minimize Microservice Vulnerabilities: [labs/04-microservice-vulnerabilities](../labs/04-microservice-vulnerabilities/README.md)
+- Supply Chain Security: [labs/05-supply-chain-security](../labs/05-supply-chain-security/README.md)
+- Monitoring, Logging and Runtime Security: [labs/06-monitoring-logging-runtime](../labs/06-monitoring-logging-runtime/README.md)

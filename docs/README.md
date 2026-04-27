@@ -15,25 +15,23 @@
 
 ## 시험 도메인별 개념
 
-- [클러스터 설정과 강화](concepts/cluster-setup-hardening.md)
-- [클러스터 하드닝](concepts/cluster-hardening.md)
-- [시스템 하드닝](concepts/system-hardening.md)
-- [마이크로서비스 취약점 최소화](concepts/microservice-vulnerabilities.md)
-- [공급망 보안](concepts/supply-chain-security.md)
-- [모니터링, 로깅, 런타임 보안](concepts/monitoring-runtime-security.md)
+- [01. Cluster Setup](concepts/01-cluster-setup.md): 15%
+- [02. Cluster Hardening](concepts/02-cluster-hardening.md): 15%
+- [03. System Hardening](concepts/03-system-hardening.md): 10%
+- [04. Minimize Microservice Vulnerabilities](concepts/04-microservice-vulnerabilities.md): 20%
+- [05. Supply Chain Security](concepts/05-supply-chain-security.md): 20%
+- [06. Monitoring, Logging and Runtime Security](concepts/06-monitoring-logging-runtime.md): 20%
 - [Cilium 네트워크 보안](concepts/cilium-network-security.md)
 - [Falco 런타임 보안](concepts/falco-runtime-security.md)
 
 ## 실습과 연결되는 주제
 
-- RBAC: [labs/02-rbac-serviceaccount](../labs/02-rbac-serviceaccount/README.md)
-- Pod Security: [labs/03-pod-security](../labs/03-pod-security/README.md)
-- NetworkPolicy: [labs/04-network-policy](../labs/04-network-policy/README.md)
-- Secret: [labs/05-secrets](../labs/05-secrets/README.md)
-- 이미지 보안: [labs/06-image-security](../labs/06-image-security/README.md)
-- Audit와 Runtime Security: [labs/07-audit-logging](../labs/07-audit-logging/README.md), [labs/08-runtime-security](../labs/08-runtime-security/README.md)
-- Cilium: [labs/09-cilium-network-security](../labs/09-cilium-network-security/README.md)
-- Falco: [labs/10-falco-detection](../labs/10-falco-detection/README.md)
+- Cluster Setup: [labs/01-cluster-setup](../labs/01-cluster-setup/README.md)
+- Cluster Hardening: [labs/02-cluster-hardening](../labs/02-cluster-hardening/README.md)
+- System Hardening: [labs/03-system-hardening](../labs/03-system-hardening/README.md)
+- Microservice Vulnerabilities: [labs/04-microservice-vulnerabilities](../labs/04-microservice-vulnerabilities/README.md)
+- Supply Chain Security: [labs/05-supply-chain-security](../labs/05-supply-chain-security/README.md)
+- Monitoring/Runtime: [labs/06-monitoring-logging-runtime](../labs/06-monitoring-logging-runtime/README.md)
 
 ## 반복 학습 체크리스트
 

@@ -50,12 +50,16 @@ kubectl -n kube-system get pods -l k8s-app=cilium
 
 ## 추천 학습 순서
 
-1. [셋업 가이드](docs/setup/README.md)로 로컬 환경을 준비한다.
-2. [CKS 개념 목차](docs/README.md)를 훑고 시험 도메인과 실습 연결을 파악한다.
-3. [kind와 Cilium 준비](labs/01-kind-cluster/README.md)를 완료한다.
-4. RBAC, Pod Security, NetworkPolicy, Secret, 이미지 보안을 시험형 문제로 반복한다.
-5. CiliumNetworkPolicy, Hubble, Falco 탐지 랩으로 고급 보안 흐름을 익힌다.
-6. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
+공식 CKS v1.34 도메인 순서로 진행합니다.
+
+1. [00. Environment](labs/00-environment/README.md): kind, Cilium, Falco 환경 준비
+2. [01. Cluster Setup](labs/01-cluster-setup/README.md): NetworkPolicy, CIS benchmark, Ingress TLS, metadata endpoint, binary verification
+3. [02. Cluster Hardening](labs/02-cluster-hardening/README.md): RBAC, ServiceAccount, API access, upgrade checklist
+4. [03. System Hardening](labs/03-system-hardening/README.md): kubelet, Linux surface reduction, AppArmor, seccomp
+5. [04. Minimize Microservice Vulnerabilities](labs/04-microservice-vulnerabilities/README.md): Pod Security, Secret, isolation, RuntimeClass, Cilium encryption
+6. [05. Supply Chain Security](labs/05-supply-chain-security/README.md): image hardening, SBOM, Cosign, Kubesec, KubeLinter
+7. [06. Monitoring, Logging and Runtime Security](labs/06-monitoring-logging-runtime/README.md): audit, Falco, runtime immutability, incident investigation
+8. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
 
 ## 공식 시험 정보와 시뮬레이터
 
@@ -74,18 +78,14 @@ kubectl -n kube-system get pods -l k8s-app=cilium
 3. 시험 2~3일 전: killer.sh 2차를 풀고, 남은 약점만 짧게 반복한다.
 4. 시험 전날: 새 내용을 늘리지 말고 `kubectl` 단축 명령, 공식 문서 검색 키워드, 자주 틀린 YAML 필드만 복습한다.
 
-## 실습 목록
+## CKS v1.34 도메인
 
-- [01. kind 클러스터와 Cilium 준비](labs/01-kind-cluster/README.md)
-- [02. RBAC와 ServiceAccount](labs/02-rbac-serviceaccount/README.md)
-- [03. Pod Security와 SecurityContext](labs/03-pod-security/README.md)
-- [04. NetworkPolicy](labs/04-network-policy/README.md)
-- [05. Secret 관리](labs/05-secrets/README.md)
-- [06. 이미지 보안](labs/06-image-security/README.md)
-- [07. Audit Logging](labs/07-audit-logging/README.md)
-- [08. Runtime Security](labs/08-runtime-security/README.md)
-- [09. Cilium 네트워크 보안](labs/09-cilium-network-security/README.md)
-- [10. Falco 런타임 탐지](labs/10-falco-detection/README.md)
+- Cluster Setup: 15%
+- Cluster Hardening: 15%
+- System Hardening: 10%
+- Minimize Microservice Vulnerabilities: 20%
+- Supply Chain Security: 20%
+- Monitoring, Logging and Runtime Security: 20%
 
 ## 시험 연습 원칙
 

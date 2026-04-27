@@ -33,5 +33,9 @@
 
 ## 세트
 
-- [Set 01: RBAC, PSA, NetworkPolicy, Secret](set-01/questions.md)
-- [Set 02: Cilium, Falco, Image Security, Audit](set-02/questions.md)
+- [Set 01: Cluster Setup + Cluster Hardening](set-01/questions.md)
+- [Set 02: System Hardening + Microservice Vulnerabilities](set-02/questions.md)
+- [Set 03: Supply Chain + Monitoring/Runtime](set-03/questions.md)
+- [Set 04: Full 120분 killer.sh 대비](set-04/questions.md)
+
+각 세트는 `questions.md`, `solutions.md`, `scorecard.md`를 함께 사용합니다. `scorecard.md`에서 실패한 항목을 도메인별로 태그하고 관련 랩으로 돌아가 다시 풉니다.

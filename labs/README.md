@@ -4,16 +4,17 @@
 
 ## 진행 순서
 
-1. [01. kind 클러스터와 Cilium 준비](01-kind-cluster/README.md)
-2. [02. RBAC와 ServiceAccount](02-rbac-serviceaccount/README.md)
-3. [03. Pod Security와 SecurityContext](03-pod-security/README.md)
-4. [04. NetworkPolicy](04-network-policy/README.md)
-5. [05. Secret 관리](05-secrets/README.md)
-6. [06. 이미지 보안](06-image-security/README.md)
-7. [07. Audit Logging](07-audit-logging/README.md)
-8. [08. Runtime Security](08-runtime-security/README.md)
-9. [09. Cilium 네트워크 보안](09-cilium-network-security/README.md)
-10. [10. Falco 런타임 탐지](10-falco-detection/README.md)
+0. [Environment](00-environment/README.md)
+1. [Cluster Setup](01-cluster-setup/README.md)
+2. [Cluster Hardening](02-cluster-hardening/README.md)
+3. [System Hardening](03-system-hardening/README.md)
+4. [Minimize Microservice Vulnerabilities](04-microservice-vulnerabilities/README.md)
+5. [Supply Chain Security](05-supply-chain-security/README.md)
+6. [Monitoring, Logging and Runtime Security](06-monitoring-logging-runtime/README.md)
+
+## 기존 랩 경로
+
+기존 `01-kind-cluster`부터 `10-falco-detection`까지의 폴더는 참고용 legacy 경로로 남겨둡니다. 새 학습 흐름에서는 위 도메인별 경로를 먼저 사용합니다.
 
 ## 시험 환경과 kind 환경 차이
 
