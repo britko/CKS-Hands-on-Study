@@ -28,9 +28,10 @@ Cilium/Hubble 확인:
 
 ```bash
 kubectl -n kube-system exec ds/cilium -- cilium-dbg endpoint list
-cilium hubble port-forward
-hubble observe --namespace cks-netpol --last 20
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
+
+`cilium`/`hubble` CLI가 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --namespace cks-netpol --last 20`를 사용할 수 있다.
 
 ## 해설
 

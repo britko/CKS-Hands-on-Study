@@ -26,7 +26,7 @@ helm upgrade cilium cilium/cilium \
 ```bash
 kubectl -n kube-system get cm cilium-config -o yaml | grep -i encryption
 kubectl -n kube-system exec ds/cilium -- cilium-dbg status | grep -i encryption
-cilium status
+kubectl -n kube-system rollout status ds/cilium
 ```
 
 ## 시험 포인트

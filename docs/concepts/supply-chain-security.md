@@ -38,7 +38,7 @@
 
 ## 연결 실습
 
-- [이미지 보안](../../labs/06-image-security/README.md)
+- [Image Security](../../labs/05-supply-chain-security/image-security/README.md)
 
 ## 공식 문서와 추가 학습
 

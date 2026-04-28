@@ -40,8 +40,8 @@ ls -l /etc/kubernetes/
 
 ## 연결 실습
 
-- [Pod Security와 SecurityContext](../../labs/03-pod-security/README.md)
-- [Runtime Security](../../labs/08-runtime-security/README.md)
+- [AppArmor and seccomp](../../labs/03-system-hardening/apparmor-seccomp/README.md)
+- [Runtime Investigation](../../labs/06-monitoring-logging-runtime/runtime-investigation/README.md)
 
 ## 공식 문서와 추가 학습
 

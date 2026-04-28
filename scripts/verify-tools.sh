@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-required=(docker kubectl kind helm)
+required=(kubectl kind helm)
 optional=(cilium hubble trivy cosign)
 
 for command in "${required[@]}"; do
@@ -20,5 +20,20 @@ for command in "${optional[@]}"; do
   fi
 done
 
-docker version >/dev/null
+if [[ "${KIND_EXPERIMENTAL_PROVIDER:-}" == "podman" ]]; then
+  if command -v podman >/dev/null 2>&1 && podman version >/dev/null 2>&1; then
+    echo "[OK] container runtime: podman"
+  else
+    echo "KIND_EXPERIMENTAL_PROVIDER is set to podman, but Podman is not usable." >&2
+    exit 1
+  fi
+elif command -v docker >/dev/null 2>&1 && docker version >/dev/null 2>&1; then
+  echo "[OK] container runtime: docker"
+elif command -v podman >/dev/null 2>&1 && podman version >/dev/null 2>&1; then
+  echo "[OK] container runtime: podman"
+else
+  echo "Neither Docker nor Podman is available. See docs/setup/linux.md or docs/setup/macos.md." >&2
+  exit 1
+fi
+
 echo "All required tools are available."

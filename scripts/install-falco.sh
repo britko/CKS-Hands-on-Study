@@ -11,7 +11,7 @@ for command in kubectl helm; do
 done
 
 echo "Adding Falco Helm repository..."
-helm repo add falcosecurity https://falcosecurity.github.io/charts >/dev/null
+helm repo add falcosecurity https://falcosecurity.github.io/charts --force-update >/dev/null
 helm repo update falcosecurity >/dev/null
 
 echo "Installing or upgrading Falco with driver.kind=${driver_kind}..."
@@ -26,4 +26,4 @@ echo "Waiting for Falco..."
 kubectl -n falco rollout status daemonset/falco --timeout=5m
 kubectl -n falco get pods
 
-echo "Falco is ready. Continue with labs/10-falco-detection/README.md"
+echo "Falco is ready. Continue with labs/06-monitoring-logging-runtime/falco-detection/README.md"

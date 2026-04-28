@@ -1,6 +1,6 @@
 # kubeadm Control Plane 시험 대비
 
-kind는 control plane을 Docker container로 실행하므로 실제 CKS 시험의 kubeadm 기반 파일 경로와 완전히 같지 않습니다. 다음 항목은 killer.sh 또는 kubeadm VM에서 최종 확인합니다.
+kind는 control plane을 Docker 또는 Podman container로 실행하므로 실제 CKS 시험의 kubeadm 기반 파일 경로와 완전히 같지 않습니다. 다음 항목은 killer.sh 또는 kubeadm VM에서 최종 확인합니다.
 
 ## 자주 보는 경로
 

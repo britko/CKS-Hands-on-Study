@@ -12,13 +12,13 @@ CKS(Certified Kubernetes Security Specialist) 합격을 목표로 Kubernetes 보
 ## 빠른 시작
 
 OS별 상세 설치는 [Windows](docs/setup/windows.md), [Linux](docs/setup/linux.md), [macOS](docs/setup/macos.md)를 참고합니다.
+컨테이너 런타임은 Docker와 Podman 중 하나만 준비하면 됩니다. 제공 스크립트는 Docker가 정상 동작하면 Docker를 쓰고, Docker가 없거나 응답하지 않으면 Podman으로 전환합니다.
 
 Windows PowerShell:
 
 ```powershell
 .\scripts\verify-tools.ps1
 .\scripts\create-kind-cluster.ps1
-.\scripts\install-falco.ps1
 ```
 
 Linux/macOS Bash:
@@ -26,7 +26,6 @@ Linux/macOS Bash:
 ```bash
 ./scripts/verify-tools.sh
 ./scripts/create-kind-cluster.sh
-./scripts/install-falco.sh
 ```
 
 클러스터 확인:
@@ -37,6 +36,12 @@ kubectl get nodes
 kubectl -n kube-system rollout status ds/cilium
 kubectl -n kube-system get pods -l k8s-app=cilium
 ```
+
+`cilium` CLI는 선택 도구입니다. 설치되어 있으면 추가 상태 확인에 사용하고, 없어도 `kubectl`/Helm rollout 검증이 통과하면 기본 랩 진행에는 문제가 없습니다. Hubble flow 관찰도 CLI가 없으면 Hubble UI로 대체합니다.
+
+기본 Cilium 설치는 로컬 kind 안정성을 위해 L7 proxy를 끕니다. HTTP path 기반 CiliumNetworkPolicy 실습은 해당 랩에서 안내하는 선택 옵션으로 L7 proxy를 켠 환경에서 진행합니다.
+
+클러스터 준비가 끝나면 아래 `추천 학습 순서`의 1번부터 진행합니다.
 
 실습을 모두 마친 뒤에는 클러스터를 삭제합니다.
 
@@ -52,14 +57,13 @@ kubectl -n kube-system get pods -l k8s-app=cilium
 
 공식 CKS v1.34 도메인 순서로 진행합니다.
 
-1. [00. Environment](labs/00-environment/README.md): kind, Cilium, Falco 환경 준비
-2. [01. Cluster Setup](labs/01-cluster-setup/README.md): NetworkPolicy, CIS benchmark, Ingress TLS, metadata endpoint, binary verification
-3. [02. Cluster Hardening](labs/02-cluster-hardening/README.md): RBAC, ServiceAccount, API access, upgrade checklist
-4. [03. System Hardening](labs/03-system-hardening/README.md): kubelet, Linux surface reduction, AppArmor, seccomp
-5. [04. Minimize Microservice Vulnerabilities](labs/04-microservice-vulnerabilities/README.md): Pod Security, Secret, isolation, RuntimeClass, Cilium encryption
-6. [05. Supply Chain Security](labs/05-supply-chain-security/README.md): image hardening, SBOM, Cosign, Kubesec, KubeLinter
-7. [06. Monitoring, Logging and Runtime Security](labs/06-monitoring-logging-runtime/README.md): audit, Falco, runtime immutability, incident investigation
-8. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
+1. [01. Cluster Setup](labs/01-cluster-setup/README.md): NetworkPolicy, CIS benchmark, Ingress TLS, metadata endpoint, binary verification
+2. [02. Cluster Hardening](labs/02-cluster-hardening/README.md): RBAC, ServiceAccount, API access, upgrade checklist
+3. [03. System Hardening](labs/03-system-hardening/README.md): kubelet, Linux surface reduction, AppArmor, seccomp
+4. [04. Minimize Microservice Vulnerabilities](labs/04-microservice-vulnerabilities/README.md): Pod Security, Secret, isolation, RuntimeClass, Cilium encryption
+5. [05. Supply Chain Security](labs/05-supply-chain-security/README.md): image hardening, SBOM, Cosign, Kubesec, KubeLinter
+6. [06. Monitoring, Logging and Runtime Security](labs/06-monitoring-logging-runtime/README.md): audit, Falco, runtime immutability, incident investigation
+7. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
 
 ## 공식 시험 정보와 시뮬레이터
 

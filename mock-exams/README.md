@@ -11,7 +11,7 @@
 
 ## 진행 방법
 
-1. kind 클러스터와 Cilium/Falco를 준비한다.
+1. kind 클러스터와 Cilium을 준비한다. Falco가 필요한 Runtime 문제를 풀기 전에는 `scripts/install-falco.*`를 실행한다.
 2. 각 세트의 `manifests/`를 적용해 문제 환경을 만든다.
 3. 타이머를 켜고 `questions.md`만 본다.
 4. 완료 후 검증 명령을 실행한다.

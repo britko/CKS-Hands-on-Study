@@ -40,9 +40,9 @@ kubectl exec -n cks-runtime suspicious -- id
 
 ## 연결 실습
 
-- [Audit Logging](../../labs/07-audit-logging/README.md)
-- [Runtime Security](../../labs/08-runtime-security/README.md)
-- [Falco 런타임 탐지](../../labs/10-falco-detection/README.md)
+- [Audit Logging](../../labs/06-monitoring-logging-runtime/audit-logging/README.md)
+- [Runtime Investigation](../../labs/06-monitoring-logging-runtime/runtime-investigation/README.md)
+- [Falco Detection](../../labs/06-monitoring-logging-runtime/falco-detection/README.md)
 
 ## 공식 문서와 추가 학습
 

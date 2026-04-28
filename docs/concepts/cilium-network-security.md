@@ -16,15 +16,18 @@ kubectl -n kube-system rollout status ds/cilium
 kubectl get crd | grep cilium
 kubectl get networkpolicy -A
 kubectl get ciliumnetworkpolicy -A
-cilium hubble port-forward
-hubble observe --last 20
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
+
+`cilium`과 `hubble` CLI는 선택 도구입니다. 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --last 20`로 터미널에서 flow를 볼 수 있고, 없으면 Hubble UI로 대체합니다.
 
 ## NetworkPolicy와 CiliumNetworkPolicy
 
 - `NetworkPolicy`: Kubernetes 표준 리소스, Pod/namespace selector 기반 L3/L4 제어
 - `CiliumNetworkPolicy`: Cilium CRD, DNS, HTTP method/path, FQDN 등 고급 조건 지원
 - `Hubble`: 정책 적용 결과와 flow를 관찰하는 도구
+
+로컬 kind 기본 설치는 안정성을 위해 Cilium L7 proxy를 끕니다. HTTP path 기반 정책은 L7 proxy를 켠 심화 환경에서 검증하고, CKS 핵심 범위는 표준 NetworkPolicy 문법과 허용/차단 검증에 집중합니다.
 
 ## 실수 포인트
 
@@ -35,12 +38,12 @@ hubble observe --last 20
 
 ## kind와 실제 클러스터 차이
 
-kind는 Docker container 위에서 노드가 실행되므로 eBPF, NodePort, host networking 동작이 실제 Linux 노드와 다를 수 있습니다. 이 저장소는 안정성을 위해 kube-proxy replacement를 기본으로 사용하지 않습니다.
+kind는 Docker 또는 Podman container 위에서 노드가 실행되므로 eBPF, NodePort, host networking 동작이 실제 Linux 노드와 다를 수 있습니다. 이 저장소는 Podman/kind 환경의 service routing 안정성을 위해 Cilium kube-proxy replacement를 사용합니다.
 
 ## 연결 실습
 
-- [NetworkPolicy](../../labs/04-network-policy/README.md)
-- [Cilium 네트워크 보안](../../labs/09-cilium-network-security/README.md)
+- [NetworkPolicy](../../labs/01-cluster-setup/network-policy/README.md)
+- [Cilium Policy](../../labs/04-microservice-vulnerabilities/cilium-policy/README.md)
 
 ## 공식 문서와 추가 학습
 

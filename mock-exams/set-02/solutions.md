@@ -5,11 +5,10 @@
 ```bash
 kubectl -n kube-system rollout status ds/cilium
 kubectl -n kube-system rollout status deployment/hubble-relay
-cilium hubble port-forward
-hubble observe --namespace exam-cilium --last 10
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
 
-Hubble output에서 source, destination, verdict를 확인한다.
+Hubble UI에서 source, destination, verdict를 확인한다. `cilium`/`hubble` CLI가 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --namespace exam-cilium --last 10`를 사용할 수 있다.
 
 ## Question 2
 

@@ -40,7 +40,7 @@ kubectl get events -n cks-psa --sort-by=.lastTimestamp
 
 ## 연결 실습
 
-- [Pod Security와 SecurityContext](../../labs/03-pod-security/README.md)
+- [Pod Security](../../labs/04-microservice-vulnerabilities/pod-security/README.md)
 
 ## 공식 문서와 추가 학습
 

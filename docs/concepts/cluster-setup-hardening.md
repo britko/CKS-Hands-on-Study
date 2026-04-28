@@ -40,7 +40,7 @@ kubectl get pod -n kube-system
 
 ## 연결 실습
 
-- [RBAC와 ServiceAccount](../../labs/02-rbac-serviceaccount/README.md)
+- [RBAC and ServiceAccount](../../labs/02-cluster-hardening/rbac-serviceaccount/README.md)
 
 ## 공식 문서와 추가 학습
 

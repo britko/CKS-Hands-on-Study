@@ -18,13 +18,16 @@ Cilium과 Hubble이 정상 동작하는지 확인하고, `exam-cilium` namespace
 
 ```bash
 kubectl -n kube-system rollout status ds/cilium
-cilium hubble port-forward
-hubble observe --namespace exam-cilium --last 10
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
+
+`cilium`/`hubble` CLI가 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --namespace exam-cilium --last 10`를 사용해도 된다.
 
 ## Question 2: Cilium L7 정책
 
 `exam-cilium` namespace에서 `client`가 `api` Service의 `/public` path만 호출할 수 있게 CiliumNetworkPolicy를 작성하라. `/admin`은 차단되어야 한다.
+
+주의: 이 문제는 Cilium L7 proxy가 켜진 환경에서 실제 차단까지 검증한다.
 
 ## Question 3: 이미지 보안
 

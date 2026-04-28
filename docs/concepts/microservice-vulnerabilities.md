@@ -41,9 +41,9 @@ kubectl exec -n cks-netpol deploy/client -- wget -qO- http://web
 
 ## 연결 실습
 
-- [NetworkPolicy](../../labs/04-network-policy/README.md)
-- [Secret 관리](../../labs/05-secrets/README.md)
-- [이미지 보안](../../labs/06-image-security/README.md)
+- [Cilium Policy](../../labs/04-microservice-vulnerabilities/cilium-policy/README.md)
+- [Secrets](../../labs/04-microservice-vulnerabilities/secrets/README.md)
+- [Image Security](../../labs/05-supply-chain-security/image-security/README.md)
 
 ## 공식 문서와 추가 학습
 

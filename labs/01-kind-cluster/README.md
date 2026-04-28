@@ -72,7 +72,7 @@ kubectl cluster-info
 
 ## kind와 시험 환경 차이
 
-kind는 로컬 Docker 위에서 노드를 실행하므로 실제 시험의 kubeadm 기반 control plane과 다릅니다. CNI 상태 확인, namespace/context 확인, `kubectl` 검증 습관은 그대로 가져가되, control plane manifest 수정은 killer.sh 또는 시험 유사 환경에서 추가로 연습합니다.
+kind는 로컬 Docker 또는 Podman 위에서 노드를 실행하므로 실제 시험의 kubeadm 기반 control plane과 다릅니다. CNI 상태 확인, namespace/context 확인, `kubectl` 검증 습관은 그대로 가져가되, control plane manifest 수정은 killer.sh 또는 시험 유사 환경에서 추가로 연습합니다.
 
 ## 정리
 

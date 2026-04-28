@@ -12,3 +12,4 @@
 
 - 표준 NetworkPolicy와 CiliumNetworkPolicy의 책임 범위를 구분한다.
 - Cilium은 policy뿐 아니라 Pod-to-Pod encryption에도 연결된다.
+- HTTP path 기반 L7 정책은 Cilium L7 proxy가 켜진 환경에서만 실제 차단까지 검증한다.

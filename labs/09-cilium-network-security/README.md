@@ -10,6 +10,19 @@
 
 Cilium은 eBPF 기반 CNI입니다. 표준 NetworkPolicy를 강제할 수 있고, CiliumNetworkPolicy를 사용하면 DNS 이름, HTTP method/path 같은 L7 조건까지 정책에 넣을 수 있습니다.
 
+이 저장소의 기본 bootstrap은 Windows/Podman/WSL2 호환성을 우선해 Cilium L7 proxy를 끈 상태로 설치합니다. 아래 HTTP path 정책까지 실제로 검증하려면 호환되는 Linux kernel 또는 Docker 기반 환경에서 L7 proxy를 명시적으로 켜고 클러스터를 준비합니다.
+
+```powershell
+.\scripts\delete-kind-cluster.ps1
+.\scripts\create-kind-cluster.ps1 -EnableCiliumL7Proxy
+```
+
+```bash
+ENABLE_CILIUM_L7_PROXY=true ./scripts/create-kind-cluster.sh
+```
+
+L7 proxy를 켜기 어려운 환경에서는 이 랩을 CiliumNetworkPolicy YAML 구조 학습으로 진행하고, 표준 NetworkPolicy 실습은 [NetworkPolicy](../04-network-policy/README.md)에서 완료합니다.
+
 ## 실습
 
 애플리케이션과 Cilium 정책을 적용합니다.
@@ -34,9 +47,10 @@ kubectl exec -n cks-cilium deploy/client -- wget -qO- --timeout=3 http://api/adm
 Hubble flow 확인:
 
 ```bash
-cilium hubble port-forward
-hubble observe --namespace cks-cilium --last 30
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
+
+브라우저에서 `http://localhost:12000`에 접속해 `cks-cilium` flow를 확인합니다. `cilium`/`hubble` CLI가 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --namespace cks-cilium --last 30`로도 확인할 수 있습니다.
 
 ## 검증
 

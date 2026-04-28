@@ -31,17 +31,17 @@ kubectl get events -n <namespace> --sort-by=.lastTimestamp
 
 - Falco 이벤트를 보고도 namespace/pod/container를 정확히 식별하지 못한다.
 - 탐지 이벤트를 Pod Security, RBAC, NetworkPolicy 개선으로 연결하지 못한다.
-- Docker Desktop, Colima, Linux bare metal의 driver 차이를 고려하지 않는다.
+- Docker Desktop, Podman machine, Colima, Linux bare metal의 driver 차이를 고려하지 않는다.
 - Falco가 탐지 도구이지 admission controller가 아니라는 점을 혼동한다.
 
 ## kind와 실제 클러스터 차이
 
-kind의 노드는 Docker container입니다. Falco는 host kernel과 driver에 영향을 받으므로 Windows/macOS Docker Desktop에서는 Linux bare metal과 이벤트가 다르게 보일 수 있습니다. 실습에서는 이벤트 해석과 조사 흐름을 익히는 데 집중합니다.
+kind의 노드는 Docker 또는 Podman container입니다. Falco는 host kernel과 driver에 영향을 받으므로 Windows/macOS Docker Desktop 또는 Podman machine에서는 Linux bare metal과 이벤트가 다르게 보일 수 있습니다. 실습에서는 이벤트 해석과 조사 흐름을 익히는 데 집중합니다.
 
 ## 연결 실습
 
-- [Runtime Security](../../labs/08-runtime-security/README.md)
-- [Falco 런타임 탐지](../../labs/10-falco-detection/README.md)
+- [Runtime Investigation](../../labs/06-monitoring-logging-runtime/runtime-investigation/README.md)
+- [Falco Detection](../../labs/06-monitoring-logging-runtime/falco-detection/README.md)
 
 ## 공식 문서와 추가 학습
 

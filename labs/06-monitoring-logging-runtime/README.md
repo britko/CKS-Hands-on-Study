@@ -11,6 +11,8 @@
 5. [Runtime Immutability](runtime-immutability/README.md)
 6. [Incident Investigation](incident-investigation/README.md)
 
+Falco는 이 도메인에 들어와서 설치합니다. [Falco Detection](falco-detection/README.md) 랩 시작 전에 `scripts/install-falco.*`를 실행합니다.
+
 ## 도메인 완료 기준
 
 - audit policy level과 Secret 로그 노출 위험을 설명할 수 있다.

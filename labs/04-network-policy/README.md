@@ -39,9 +39,10 @@ Cilium 관점에서 endpoint와 flow 확인:
 
 ```bash
 kubectl -n kube-system exec ds/cilium -- cilium-dbg endpoint list
-cilium hubble port-forward
-hubble observe --namespace cks-netpol --last 20
+kubectl -n kube-system port-forward svc/hubble-ui 12000:80
 ```
+
+브라우저에서 `http://localhost:12000`에 접속해 `cks-netpol` flow를 확인합니다. `cilium`/`hubble` CLI가 설치되어 있다면 `cilium hubble port-forward`와 `hubble observe --namespace cks-netpol --last 20`로도 확인할 수 있습니다.
 
 ## 검증
 

@@ -6,8 +6,8 @@
 
 ### 4주 전: 기본기와 환경
 
-- [셋업 가이드](setup/README.md)로 로컬 `kind`, Cilium, Falco 환경을 만든다.
-- [Environment](../labs/00-environment/README.md)부터 [Microservice Vulnerabilities](../labs/04-microservice-vulnerabilities/README.md)까지 따라 한다.
+- [셋업 가이드](setup/README.md)로 로컬 `kind`와 Cilium 환경을 만든다.
+- [Cluster Setup](../labs/01-cluster-setup/README.md)부터 [Microservice Vulnerabilities](../labs/04-microservice-vulnerabilities/README.md)까지 따라 한다.
 - [Kubernetes Security](https://kubernetes.io/docs/concepts/security/)를 훑고 시험 도메인 이름과 연결한다.
 
 ### 3주 전: 시험형 문제 전환
@@ -27,7 +27,7 @@
 
 - [Mock Exam Set 01](../mock-exams/set-01/questions.md), [Set 02](../mock-exams/set-02/questions.md)를 각각 60분 제한으로 푼다.
 - 실패한 명령은 별도 메모에 “원인, 빠른 명령, 공식 문서 링크”로 정리한다.
-- Cilium/Falco 실습은 이해 보강용으로 활용하고, 실제 CKS 기본 범위는 Kubernetes 표준 리소스 중심으로 다시 확인한다.
+- Cilium/Falco 실습은 이해 보강용으로 활용한다. Falco는 [Falco Detection](../labs/06-monitoring-logging-runtime/falco-detection/README.md) 랩 직전에 설치하고, 실제 CKS 기본 범위는 Kubernetes 표준 리소스 중심으로 다시 확인한다.
 
 ### 2~3일 전: killer.sh 2차
 
