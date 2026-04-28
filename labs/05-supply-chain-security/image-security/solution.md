@@ -3,7 +3,7 @@
 ## 적용
 
 ```bash
-kubectl apply -f labs/06-image-security/manifests/image-security.yaml
+kubectl apply -f labs/05-supply-chain-security/image-security/manifests/image-security.yaml
 ```
 
 ## 확인
@@ -29,5 +29,5 @@ trivy image --severity HIGH,CRITICAL nginxinc/nginx-unprivileged:1.27-alpine
 ## 정리
 
 ```bash
-kubectl delete -f labs/06-image-security/manifests/image-security.yaml
+kubectl delete -f labs/05-supply-chain-security/image-security/manifests/image-security.yaml
 ```

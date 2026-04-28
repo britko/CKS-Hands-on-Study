@@ -3,9 +3,9 @@
 ## 적용
 
 ```bash
-kubectl apply -f labs/03-pod-security/manifests/namespace.yaml
-kubectl apply -f labs/03-pod-security/manifests/privileged-pod.yaml
-kubectl apply -f labs/03-pod-security/manifests/restricted-pod.yaml
+kubectl apply -f labs/04-microservice-vulnerabilities/pod-security/manifests/namespace.yaml
+kubectl apply -f labs/04-microservice-vulnerabilities/pod-security/manifests/privileged-pod.yaml
+kubectl apply -f labs/04-microservice-vulnerabilities/pod-security/manifests/restricted-pod.yaml
 ```
 
 두 번째 명령은 실패해야 정상이다.
@@ -32,6 +32,6 @@ kubectl get pod restricted-nginx -n cks-psa -o jsonpath="{.spec.containers[0].se
 ## 정리
 
 ```bash
-kubectl delete -f labs/03-pod-security/manifests/restricted-pod.yaml
-kubectl delete -f labs/03-pod-security/manifests/namespace.yaml
+kubectl delete -f labs/04-microservice-vulnerabilities/pod-security/manifests/restricted-pod.yaml
+kubectl delete -f labs/04-microservice-vulnerabilities/pod-security/manifests/namespace.yaml
 ```

@@ -10,7 +10,7 @@
 
 ## Question 2: Static Analysis
 
-`labs/06-image-security/manifests/image-security.yaml`에서 정적 분석 도구가 지적할 수 있는 위험 설정을 3개 이상 찾고 수정 방향을 적어라.
+`labs/05-supply-chain-security/image-security/manifests/image-security.yaml`에서 정적 분석 도구가 지적할 수 있는 위험 설정을 3개 이상 찾고 수정 방향을 적어라.
 
 ## Question 3: Audit Policy
 

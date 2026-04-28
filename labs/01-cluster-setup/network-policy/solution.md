@@ -3,8 +3,8 @@
 ## 적용
 
 ```bash
-kubectl apply -f labs/04-network-policy/manifests/app.yaml
-kubectl apply -f labs/04-network-policy/manifests/network-policy.yaml
+kubectl apply -f labs/01-cluster-setup/network-policy/manifests/app.yaml
+kubectl apply -f labs/01-cluster-setup/network-policy/manifests/network-policy.yaml
 ```
 
 ## 확인
@@ -40,6 +40,6 @@ NetworkPolicy는 "허용 목록" 모델이다. 특정 Pod가 하나 이상의 in
 ## 정리
 
 ```bash
-kubectl delete -f labs/04-network-policy/manifests/network-policy.yaml
-kubectl delete -f labs/04-network-policy/manifests/app.yaml
+kubectl delete -f labs/01-cluster-setup/network-policy/manifests/network-policy.yaml
+kubectl delete -f labs/01-cluster-setup/network-policy/manifests/app.yaml
 ```

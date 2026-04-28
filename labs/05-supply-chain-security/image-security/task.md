@@ -16,7 +16,7 @@
 ## 완료 조건
 
 ```bash
-kubectl apply -f labs/06-image-security/manifests/image-security.yaml
+kubectl apply -f labs/05-supply-chain-security/image-security/manifests/image-security.yaml
 kubectl exec -n cks-image secure-app -- id
 kubectl get pod secure-app -n cks-image -o jsonpath="{.spec.containers[0].securityContext.allowPrivilegeEscalation}"
 ```

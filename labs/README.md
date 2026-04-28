@@ -11,9 +11,9 @@
 5. [Supply Chain Security](05-supply-chain-security/README.md)
 6. [Monitoring, Logging and Runtime Security](06-monitoring-logging-runtime/README.md)
 
-## 기존 랩 경로
+## 구조 원칙
 
-기존 `01-kind-cluster`부터 `10-falco-detection`까지의 폴더는 manifest와 과거 상세 해설을 보관하는 legacy 경로입니다. 새 학습 흐름에서는 위 도메인별 경로만 따라갑니다.
+최상위 `labs`는 공식 CKS 도메인 6개만 진입점으로 둡니다. 각 도메인 아래에 README, task/hints/solution, manifest를 함께 배치해 실습 경로가 한곳에서 끝나도록 유지합니다.
 
 ## 시험 환경과 kind 환경 차이
 

@@ -1,6 +1,6 @@
 # CKS 개념 목차
 
-이 문서는 CKS 시험 범위를 빠르게 복습하기 위한 출발점입니다. 각 개념 문서는 실습 랩과 연결되며, 시험에서 확인해야 하는 핵심 명령과 판단 기준을 포함합니다.
+이 문서는 CKS 시험 범위를 학습하기 위한 개념 출발점입니다. 각 도메인 문서를 먼저 읽고 연결된 실습 랩을 수행하면, 단순 문제 풀이가 아니라 보안 설정의 이유와 검증 흐름을 함께 익힐 수 있습니다.
 
 ## 공식 문서 인덱스
 
@@ -21,8 +21,13 @@
 - [04. Minimize Microservice Vulnerabilities](concepts/04-microservice-vulnerabilities.md): 20%
 - [05. Supply Chain Security](concepts/05-supply-chain-security.md): 20%
 - [06. Monitoring, Logging and Runtime Security](concepts/06-monitoring-logging-runtime.md): 20%
-- [Cilium 네트워크 보안](concepts/cilium-network-security.md)
-- [Falco 런타임 보안](concepts/falco-runtime-security.md)
+
+권장 흐름:
+
+1. 도메인 개념 문서에서 공격면, 동작 원리, 자주 틀리는 필드를 읽는다.
+2. 연결 실습 랩에서 같은 내용을 직접 적용하고 검증한다.
+3. Mock exam에서 제한 시간 안에 같은 유형을 다시 푼다.
+4. 실패한 문제는 해당 도메인 개념 문서의 실수 포인트로 돌아가 복기한다.
 
 ## 실습과 연결되는 주제
 

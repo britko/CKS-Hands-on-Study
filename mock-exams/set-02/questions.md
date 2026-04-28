@@ -50,4 +50,4 @@ kubectl logs -n falco -l app.kubernetes.io/name=falco --since=10m | grep -E "exa
 
 ## Question 5: Audit policy 해석
 
-[labs/07-audit-logging/manifests/audit-policy.yaml](../../labs/07-audit-logging/manifests/audit-policy.yaml)을 보고 Secret 요청을 `Metadata` 수준으로 기록하는 이유를 설명하라.
+[labs/06-monitoring-logging-runtime/audit-logging/manifests/audit-policy.yaml](../../labs/06-monitoring-logging-runtime/audit-logging/manifests/audit-policy.yaml)을 보고 Secret 요청을 `Metadata` 수준으로 기록하는 이유를 설명하라.

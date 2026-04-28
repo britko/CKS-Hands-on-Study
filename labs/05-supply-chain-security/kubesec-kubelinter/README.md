@@ -8,7 +8,7 @@
 ## Kubesec
 
 ```bash
-kubesec scan labs/06-image-security/manifests/image-security.yaml
+kubesec scan labs/05-supply-chain-security/image-security/manifests/image-security.yaml
 ```
 
 ## KubeLinter

@@ -6,6 +6,11 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$Utf8NoBomEncoding = [System.Text.UTF8Encoding]::new($false)
+[Console]::InputEncoding = $Utf8NoBomEncoding
+[Console]::OutputEncoding = $Utf8NoBomEncoding
+$OutputEncoding = $Utf8NoBomEncoding
+
 function Test-Command {
     param([string]$Name)
 
@@ -120,7 +125,7 @@ try {
 
     Write-Host ""
     Write-Host "Cluster, Cilium, and Hubble are ready."
-    Write-Host "Next learning path: README.md#추천-학습-순서"
+    Write-Host "Next learning path: README.md#%EC%B6%94%EC%B2%9C-%ED%95%99%EC%8A%B5-%EC%88%9C%EC%84%9C"
     Write-Host "Start at step 1: labs/01-cluster-setup/README.md"
 } catch {
     [Console]::Error.WriteLine("Cluster setup failed: $($_.Exception.Message)")

@@ -55,15 +55,65 @@ kubectl -n kube-system get pods -l k8s-app=cilium
 
 ## 추천 학습 순서
 
-공식 CKS v1.34 도메인 순서로 진행합니다.
+공식 CKS v1.34 도메인 순서로 진행합니다. 각 단계는 먼저 개념 문서를 읽고, 연결된 hands-on 랩을 수행한 뒤, mock exam에서 같은 유형을 다시 푸는 흐름으로 학습합니다.
 
-1. [01. Cluster Setup](labs/01-cluster-setup/README.md): NetworkPolicy, CIS benchmark, Ingress TLS, metadata endpoint, binary verification
-2. [02. Cluster Hardening](labs/02-cluster-hardening/README.md): RBAC, ServiceAccount, API access, upgrade checklist
-3. [03. System Hardening](labs/03-system-hardening/README.md): kubelet, Linux surface reduction, AppArmor, seccomp
-4. [04. Minimize Microservice Vulnerabilities](labs/04-microservice-vulnerabilities/README.md): Pod Security, Secret, isolation, RuntimeClass, Cilium encryption
-5. [05. Supply Chain Security](labs/05-supply-chain-security/README.md): image hardening, SBOM, Cosign, Kubesec, KubeLinter
-6. [06. Monitoring, Logging and Runtime Security](labs/06-monitoring-logging-runtime/README.md): audit, Falco, runtime immutability, incident investigation
+1. [01. Cluster Setup 개념](docs/concepts/01-cluster-setup.md) -> [랩](labs/01-cluster-setup/README.md): NetworkPolicy, CIS benchmark, Ingress TLS, metadata endpoint, binary verification
+2. [02. Cluster Hardening 개념](docs/concepts/02-cluster-hardening.md) -> [랩](labs/02-cluster-hardening/README.md): RBAC, ServiceAccount, API access, upgrade checklist
+3. [03. System Hardening 개념](docs/concepts/03-system-hardening.md) -> [랩](labs/03-system-hardening/README.md): kubelet, Linux surface reduction, AppArmor, seccomp
+4. [04. Minimize Microservice Vulnerabilities 개념](docs/concepts/04-microservice-vulnerabilities.md) -> [랩](labs/04-microservice-vulnerabilities/README.md): Pod Security, Secret, isolation, RuntimeClass, Cilium encryption
+5. [05. Supply Chain Security 개념](docs/concepts/05-supply-chain-security.md) -> [랩](labs/05-supply-chain-security/README.md): image hardening, SBOM, Cosign, Kubesec, KubeLinter
+6. [06. Monitoring, Logging and Runtime Security 개념](docs/concepts/06-monitoring-logging-runtime.md) -> [랩](labs/06-monitoring-logging-runtime/README.md): audit, Falco, runtime immutability, incident investigation
 7. [Mock Exam](mock-exams/README.md)을 제한 시간 안에 풀고 해설로 복기한다.
+
+## 상세 학습 경로
+
+```mermaid
+flowchart TD
+    A["OS별 도구 설치<br/>Windows / Linux / macOS"] --> B["필수 도구 검증<br/>verify-tools"]
+    B --> C["kind 클러스터 생성<br/>create-kind-cluster"]
+    C --> D["Cilium / Hubble 준비 확인<br/>kubectl rollout status"]
+    D --> E["01. Cluster Setup"]
+
+    E --> E1["NetworkPolicy<br/>default deny / allow"]
+    E1 --> E2["CIS Benchmark<br/>위험 항목 분류"]
+    E2 --> E3["Ingress TLS<br/>TLS Secret 연결"]
+    E3 --> E4["Metadata Endpoints<br/>노드/클라우드 메타데이터 보호"]
+    E4 --> E5["Platform Binary Verification<br/>checksum / signature"]
+    E5 --> F["02. Cluster Hardening"]
+
+    F --> F1["RBAC<br/>Role / ClusterRole / can-i"]
+    F1 --> F2["ServiceAccount<br/>token 노출 최소화"]
+    F2 --> F3["API Access<br/>인증/인가 흐름"]
+    F3 --> F4["Upgrade Checklist<br/>보안 패치 관점"]
+    F4 --> G["03. System Hardening"]
+
+    G --> G1["kubelet Hardening<br/>read-only port / authz"]
+    G1 --> G2["Linux Surface Reduction<br/>불필요 서비스 제거"]
+    G2 --> G3["AppArmor / seccomp<br/>프로파일 적용"]
+    G3 --> H["04. Minimize Microservice Vulnerabilities"]
+
+    H --> H1["Pod Security<br/>restricted baseline"]
+    H1 --> H2["SecurityContext<br/>non-root / capabilities"]
+    H2 --> H3["Secrets<br/>노출 방지와 사용 패턴"]
+    H3 --> H4["RuntimeClass / Sandbox<br/>격리 강화"]
+    H4 --> H5["Cilium 심화<br/>encryption / L7 policy"]
+    H5 --> I["05. Supply Chain Security"]
+
+    I --> I1["Image Hardening<br/>최소 이미지 / root 제거"]
+    I1 --> I2["Trivy / SBOM<br/>취약점과 구성요소 확인"]
+    I2 --> I3["Cosign<br/>서명과 검증"]
+    I3 --> I4["Kubesec / KubeLinter<br/>manifest 정적 분석"]
+    I4 --> J["06. Monitoring, Logging and Runtime Security"]
+
+    J --> J1["Audit Logging<br/>policy / log 확인"]
+    J1 --> J2["Falco Detection<br/>런타임 이벤트 탐지"]
+    J2 --> J3["Runtime Immutability<br/>readOnlyRootFilesystem"]
+    J3 --> J4["Incident Investigation<br/>증거 수집과 격리"]
+    J4 --> K["Mock Exam<br/>제한 시간 풀이"]
+    K --> L["오답 복기<br/>관련 랩 재실습"]
+    L --> M["killer.sh<br/>시험 유사 환경 검증"]
+    M --> N["시험 직전 루틴<br/>공식 문서 검색 키워드 / kubectl 단축 명령"]
+```
 
 ## 공식 시험 정보와 시뮬레이터
 

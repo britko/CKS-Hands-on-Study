@@ -23,7 +23,7 @@ SBOM은 구성 요소 목록이고, 취약점 스캔은 알려진 CVE와 심각�
 
 ## Question 3
 
-[audit policy 예시](../../labs/07-audit-logging/manifests/audit-policy.yaml)를 참고한다. Secret은 민감 데이터 노출을 막기 위해 `Metadata`, ConfigMap 변경은 조사 목적으로 `RequestResponse`가 가능하다.
+[audit policy 예시](../../labs/06-monitoring-logging-runtime/audit-logging/manifests/audit-policy.yaml)를 참고한다. Secret은 민감 데이터 노출을 막기 위해 `Metadata`, ConfigMap 변경은 조사 목적으로 `RequestResponse`가 가능하다.
 
 ## Question 4
 

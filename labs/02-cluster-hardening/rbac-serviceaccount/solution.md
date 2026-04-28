@@ -3,7 +3,7 @@
 ## 적용
 
 ```bash
-kubectl apply -f labs/02-rbac-serviceaccount/manifests/rbac.yaml
+kubectl apply -f labs/02-cluster-hardening/rbac-serviceaccount/manifests/rbac.yaml
 ```
 
 ## 확인
@@ -29,5 +29,5 @@ kubectl auth can-i get secrets --as system:serviceaccount:cks-rbac:pod-reader -n
 ## 정리
 
 ```bash
-kubectl delete -f labs/02-rbac-serviceaccount/manifests/rbac.yaml
+kubectl delete -f labs/02-cluster-hardening/rbac-serviceaccount/manifests/rbac.yaml
 ```
